@@ -1,0 +1,29 @@
+<div class="container-fluid h-100">
+  <div class="row mt-4 justify-content-center align-items-center h-auto">
+    <div align="center" class="col-lg-10">
+      <!--
+            <h1 align="center" class="text-uppercase text-muted font-weight-bold" >Add tag</h1>
+      -->
+
+      <form (ngSubmit)="onAddTag()" #f="ngForm">
+        <div class="text-center">
+          <label for="title" class="font-weight-bold" style="font-size: 15px">Tag name:</label>
+          <input
+            type="text"
+            class="form-control font-weight-bold"
+            id="title"
+            required
+            ngModel
+            name="name" style="font-size: 15px">
+        </div>
+        <div align="right">
+          <button
+            type="submit"
+            class="btn btn-outline-primary btn-lg col-lg-3 mx-auto d-block mb-4"
+            [disabled]="!f.valid" style="font-size: 10px"> Add Tag
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

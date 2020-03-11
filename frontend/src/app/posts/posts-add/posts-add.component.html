@@ -1,0 +1,59 @@
+<div class="container-fluid h-100">
+  <div class="row mt-4 justify-content-center align-items-center h-auto">
+    <div class="col-lg-10">
+      <h2 class="text-center mb-4 alert alert-dark" style="font-size: 20px; background-color:#032463" >Add post</h2>
+      <form (ngSubmit)="onAddPost()" #f="ngForm">
+          <div class="text-center">
+            <label for="title" class="font-weight-bold" style="font-size: 20px">Title</label>
+            <input
+              type="text"
+              class="form-control font-weight-bold"
+              id="title"
+              required
+              ngModel
+              name="title" style="font-size: 15px">
+          </div>
+          <div class="form-group text-center mt-4">
+            <label for="content" class="font-weight-bold" style="font-size: 20px">Content</label>
+            <textarea
+              class="form-control"
+              id="content"
+              rows="12"
+              required
+              ngModel
+              name="content" style="font-size: 15px"></textarea>
+          </div>
+
+
+
+      <div>
+      <ng-multiselect-dropdown
+        [placeholder]="'Choose tags'"
+        [data]="tags"
+        [settings]="dropdownSettings"
+        (onSelect)="onItemSelect($event)">
+      </ng-multiselect-dropdown></div>
+      <div *ngIf = "show">
+      <app-tag-add  ></app-tag-add>
+      </div>
+
+
+
+    <button
+      type="submit"
+      class="btn btn-outline-primary btn-lg col-lg-3 mx-auto d-block mb-4"
+      [disabled]="!f.valid" style="font-size: 15px" >Add post </button>
+
+    </form>
+
+    </div>
+    <button class="btn btn-outline-primary btn-lg col-lg-3 mx-auto d-block mb-4" (click)=isShow() style="font-size: 10px">
+      <!--routerLink="/tag-add"-->
+      Add tag <i class="glyphicon glyphicon-plus">
+    </i>
+    </button>
+
+  </div>
+</div>
+
+

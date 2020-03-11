@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse"  style=" background-color:#032463;
+">
+<div class="container-fluid">
+      <a class="navbar-brand" style="font-size:24px;color: white">AskMe</a>
+
+    <ul class="nav navbar-nav" routerLinkActive="active">
+      <li style="font-size:20px">
+        <a *ngIf="authority" class="nav-link" routerLink="home">Account informations</a></li>
+      <li style="font-size:20px">
+        <a *ngIf="authority"class="nav-link" routerLink="posts-list">Posts</a>
+      </li>
+      <li style="font-size:20px" *ngIf="!authority">
+        <button class="btn btn-danger navbar-btn" routerLink="auth/login" style="width: 150px; height:35px;font-size:15px" >Login</button>
+      </li>
+      <li style="font-size:20px" *ngIf="authority" >
+        <button class="btn btn-danger navbar-btn" style="width: 150px; height:35px;font-size:15px" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+<div  style="width: 80%; margin:0 auto">
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>

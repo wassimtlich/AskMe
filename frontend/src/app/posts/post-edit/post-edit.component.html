@@ -1,0 +1,57 @@
+<div class="container-fluid h-100">
+  <div class="row mt-4 justify-content-center align-items-center h-auto">
+    <div class="col-lg-10">
+      <form (ngSubmit)="onEditPost()" #f="ngForm">
+        <h2 class="text-center mb-4 alert alert-dark" style="font-size: 20px;background-color:#032463">Edit post</h2>
+        <div id="post-data">
+          <div class="form-group text-center">
+            <label for="title" class="font-weight-bold" style="font-size: 20px">Title:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              required
+              [ngModel]="[editedPost.title]"
+              name="title" style="font-size: 15px">
+          </div>
+          <div class="form-group text-center">
+            <label for="content" class="font-weight-bold" style="font-size: 20px">Content:</label>
+            <textarea
+              class="form-control"
+              id="content"
+              rows="7"
+              required
+              [ngModel]="[editedPost.content]"
+              name="content"
+              style="font-size: 15px"></textarea>
+          </div>
+          <div>
+            <ng-multiselect-dropdown
+              [placeholder]="'Choose tags'"
+              [data]="tags"
+              [settings]="dropdownSettings"
+              (onSelect)="onItemSelect($event)">
+            </ng-multiselect-dropdown></div>
+          <div *ngIf = "show">
+            <app-tag-add  ></app-tag-add>
+          </div>
+
+          <div class="row mt-4">
+            <button type="submit"
+                    class="btn btn-outline-primary btn-lg mx-auto d-block" style="width: 150px; height:40px;font-size:12px;margin-right: 20px;">save
+            </button>
+            <button class="btn btn-outline-danger btn-lg mx-auto d-block"
+                    style="width: 150px; height:40px;font-size:12px;margin-right: 20px;"           [routerLink]="['/posts/',editedPost.id]">
+            cancel
+          </button>
+          </div>
+        </div>
+      </form>
+      <br>
+      <a class="btn btn-outline-primary btn-lg col-lg-3 mx-auto d-block mb-4" (click)=isShow()>
+        Add tag <i class="glyphicon glyphicon-plus">
+      </i>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+<div style="width: 100%; margin:0 auto;text-align: center; " *ngIf="info.token; else loggedOut">
+  <p>
+    <img src="assets/img/avatar.png" alt="avatar" height="352" width="370" />
+  </p>
+  <h2 class="text-primary" style="font-size: 30px " >Your Informations</h2>
+  <p>
+    <strong style="font-size: 20px ">Username:</strong> <a style="font-size: 20px "> {{info.username}}</a><br/>
+    <strong style="font-size: 20px ">Roles:</strong> <a style="font-size: 20px "> {{info.roles}}</a><br />
+  </p>
+  <button class="btn btn-secondary" style="width: 150px; height:35px;font-size:15px" (click)="logout()">Logout</button>
+</div>
+
+<ng-template #loggedOut>
+  <div style="text-align: center; ">
+  <a style="font-size: 20px ">
+  Please login.</a></div>
+</ng-template>
